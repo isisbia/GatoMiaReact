@@ -10,15 +10,19 @@ permissions:
   pages: write
   id-token: write
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🧾 Checkout do repositório
+      - name: 📥 Baixar repositório
         uses: actions/checkout@v4
 
-      - name: ⚙️ Configurar Node.js
+      - name: ⚙️ Configurar Node
         uses: actions/setup-node@v4
         with:
           node-version: 18
@@ -26,8 +30,22 @@ jobs:
       - name: 📦 Instalar dependências
         run: npm install
 
-      - name: 🛠️ Gerar build
+      - name: 🏗️ Gerar build Vite
         run: npm run build
 
-      - name: 🚀 Publicar no GitHub Pages
+      - name: 📤 Upload do build
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: 🚀 Deploy no GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
