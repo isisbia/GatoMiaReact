@@ -32,7 +32,7 @@ export const googleProvider = new GoogleAuthProvider();
 
 // ✅ App Check (RECAPTCHA V3)
 initializeAppCheck(app, {
-  provider: new ReCaptchaV3Provider("SUA_SITE_KEY_REAL_DO_RECAPTCHA"),
+  provider: new ReCaptchaV3Provider("6LcKXAQsAAAAAMm6QKz3YNENiAO4sIx-0on7MJyO"),
   isTokenAutoRefreshEnabled: true
 });
 
