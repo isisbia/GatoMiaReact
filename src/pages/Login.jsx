@@ -110,7 +110,7 @@ export default function Login() {
               </div>
 
               <p className="text-center mt-3">
-                Não tem uma conta? <Link to="/signup">Cadastre-se</Link>
+                Não tem uma conta? <Link to="/Signup">Cadastre-se</Link>
               </p>
             </form>
           </div>
