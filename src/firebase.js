@@ -1,4 +1,3 @@
-// src/firebase.js
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
@@ -6,28 +5,35 @@ import { getStorage } from "firebase/storage";
 import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+  apiKey: "AIzaSyAouaJSO0_foB86teLYVpZPSA3T-wIyYMQ",
+  authDomain: "gato-mia-fd7a5.firebaseapp.com",
+  projectId: "gato-mia-fd7a5",
+  storageBucket: "gato-mia-fd7a5.firebasestorage.app",
+  messagingSenderId: "50705734840",
+  appId: "1:50705734840:web:0b84732aa6de7a0886684d",
+  measurementId: "G-2E2X4K55WB"
 };
-
-// Permite debug do AppCheck localmente
-self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
 
 const app = initializeApp(firebaseConfig);
 
-initializeAppCheck(app, {
-  provider: new ReCaptchaV3Provider(import.meta.env.VITE_RECAPTCHA_KEY),
-  isTokenAutoRefreshEnabled: true,
-});
+/// ================= EXPORTAÇÕES =================
 
+// 🔐 Auth
 export const auth = getAuth(app);
-export const googleProvider = new GoogleAuthProvider();
+
+// 🔥 Firestore
 export const db = getFirestore(app);
+
+// 📁 Storage
 export const storage = getStorage(app);
+
+// 🔑 Google Provider (Login com Google)
+export const googleProvider = new GoogleAuthProvider();
+
+// ✅ App Check (RECAPTCHA V3)
+initializeAppCheck(app, {
+  provider: new ReCaptchaV3Provider("SUA_SITE_KEY_REAL_DO_RECAPTCHA"),
+  isTokenAutoRefreshEnabled: true
+});
 
 export default app;

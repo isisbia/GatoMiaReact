@@ -38,7 +38,7 @@ export default function Home() {
         <div className="container">
           <h1 className="fw-bold display-5">Bem-vindo ao Gato Mia</h1>
           <p className="lead mb-3">
-            Juntos pela proteção e bem-estar das crianças.<br></br> 
+            Juntos pela proteção e bem-estar das crianças.<br></br>
             Sua rede de apoio contra o abuso sexual.
           </p>
           {!user && (
@@ -65,17 +65,18 @@ export default function Home() {
           <div className="col-12 col-lg-6">
             <h2 className="fw-bold mb-4">Sobre Nós</h2>
             <p className="text-muted fs-5">
-              O <strong>Gato Mia</strong> nasceu com a missão de proteger, 
-              informar e apoiar famílias, educadores e a sociedade na luta contra 
-              o abuso infantil. Nosso objetivo é oferecer informação acessível, 
-              promover a conscientização e criar um espaço seguro para todos.
+              O <strong>Gato Mia</strong> nasceu com a missão de proteger,
+              informar e apoiar famílias, educadores e a sociedade na luta
+              contra o abuso infantil. Nosso objetivo é oferecer informação
+              acessível, promover a conscientização e criar um espaço seguro
+              para todos.
             </p>
             <p className="text-muted fs-5">
-              Acreditamos que a <strong>prevenção</strong> começa com o 
-              <strong> conhecimento</strong>, e que juntos podemos construir um 
+              Acreditamos que a <strong>prevenção</strong> começa com o
+              <strong> conhecimento</strong>, e que juntos podemos construir um
               futuro mais acolhedor e seguro para nossas crianças.
             </p>
-            <a href="/about" className="btn btn-outline-primary btn-lg mt-3">
+            <a href="/home" className="btn btn-outline-primary btn-lg mt-3">
               Saiba mais
             </a>
           </div>
