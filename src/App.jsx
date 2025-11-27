@@ -21,13 +21,14 @@ export default function App() {
       <main className="flex-fill" style={{ marginTop: "84px", marginBottom: "80px" }}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/report" element={<Report />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/profile" element={<Profile />} />
-        </Routes>
+          <Route path="/About" element={<About />} />
+          <Route path="/Contact" element={<Contact />} />
+          <Route path="/Report" element={<Report />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/Signup" element={<Signup />} />
+          <Route path="/Profile" element={<Profile />} />
+</Routes>
+
       </main>
 
       <Footer />
