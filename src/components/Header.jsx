@@ -73,7 +73,7 @@ export default function Header() {
                 </Button>
                 <Button
                   as={Link}
-                  to="/signup"
+                  to="/Signup"
                   size="sm"
                   className="btn-auth btn-cadastrar"
                 >
