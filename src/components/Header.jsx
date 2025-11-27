@@ -44,7 +44,7 @@ export default function Header() {
               Contatos
             </Nav.Link>
             <Nav.Link as={Link} to="/report" className="text-white">
-              Denúncie
+              Denuncie
             </Nav.Link>
 
             {user ? (

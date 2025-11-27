@@ -10,9 +10,9 @@ const images = import.meta.glob("../assets/*.{jpg,jpeg,png,webp}", {
 
 // chave esperada: "../assets/equipe.jpg"
 const equipeUrl =
-  images["../assets/equipe.jpg"] ??
-  images["../assets/equipe.png"] ??
-  "https://via.placeholder.com/600x400?text=Equipe";
+  images["../assets/GatoMiaOffice.jpg"] ??
+  images["../assets/GatoMiaOffice.png"] ??
+  "GatoMiaOfficePlaceholder";
 
 export default function About() {
   return (
@@ -38,7 +38,7 @@ export default function About() {
           <div className="col-md-6 text-center">
             <img
               src={equipeUrl}
-              alt="Equipe Gato Mia"
+              alt="GatoMiaOffice"
               className="img-fluid rounded shadow"
               style={{ maxHeight: "350px", objectFit: "cover" }}
             />

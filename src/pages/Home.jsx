@@ -42,7 +42,7 @@ export default function Home() {
             Sua rede de apoio contra o abuso sexual.
           </p>
           {!user && (
-            <a href="/Signup" className="btn btn-primary btn-lg">
+            <a href="/#" className="btn btn-primary btn-lg">
               Cadastre-se
             </a>
           )}
@@ -76,7 +76,7 @@ export default function Home() {
               <strong> conhecimento</strong>, e que juntos podemos construir um
               futuro mais acolhedor e seguro para nossas crianças.
             </p>
-            <a href="/home" className="btn btn-outline-primary btn-lg mt-3">
+            <a href="/#" className="btn btn-outline-primary btn-lg mt-3">
               Saiba mais
             </a>
           </div>
