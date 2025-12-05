@@ -1,16 +1,45 @@
-/* src/index.css */
+/* --- Importação de Fontes (Google Fonts) --- */
+@import url('https://fonts.googleapis.com/css2?family=ADLaM+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 
-/* Reset/Global */
 * { box-sizing: border-box; }
-html, body, #root { height: 100%; }
-body {
-  background-color: #f8f9fa;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+
+/* CORREÇÃO ROBUSTA PARA ROLAGEM LATERAL */
+html {
+  width: 100%;
+  overflow-x: hidden; /* Bloqueia rolagem no nível raiz */
 }
 
-/* Remove restos de logo do template (esse era o bloco verde grande) */
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Reforça bloqueio no corpo */
+  position: relative; /* Ajuda a conter elementos fixos em mobile */
+  background-color: #f8f9fa;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#root { 
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  width: 100%;
+  max-width: 100%; /* Garante que o app nunca exceda a tela */
+  overflow-x: hidden;
+}
+
+/* --- Classes Utilitárias de Fonte --- */
+.font-adlam {
+  font-family: 'ADLaM Display', cursive;
+}
+
+.font-opensans {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* --- Estilos do React/Vite (Padrão) --- */
 .logo,
 .logo.react,
 .vite-logo,
@@ -23,15 +52,19 @@ img.logo {
   pointer-events: none !important;
 }
 
-/* Navbar degradê roxo -> azul (força com !important) */
+/* --- Navbar e Header --- */
+/* CORREÇÃO: Usar min-height para permitir expansão */
 .navbar-gradient {
   background: linear-gradient(180deg, #6a11cb 0%, #2575fc 100%) !important;
-  height: 72px;
+  min-height: 72px; 
+  width: 100%; /* Garante que a navbar não estoure a largura */
   box-shadow: 0 2px 6px rgba(0,0,0,0.08) !important;
   z-index: 1100;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
-/* Brand/logo */
+/* Logo Container */
 .brand-icon {
   width: 44px;
   height: 44px;
@@ -43,19 +76,21 @@ img.logo {
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
+
 .brand-img {
   width: 40px !important;
   height: 40px !important;
   object-fit: contain !important;
   display: inline-block !important;
 }
+
 .brand-text {
   color: #fff !important;
   font-weight: 700;
   font-size: 1.1rem;
 }
 
-/* Links da navbar: branco (forçado) */
+/* Links da navbar */
 .nav-link-white {
   color: #fff !important;
   font-weight: 500 !important;
@@ -66,25 +101,46 @@ img.logo {
   text-decoration: underline !important;
 }
 
-/* Botões */
+/* --- Botões --- */
 .btn-entrar {
   background-color: #16a34a !important;
   color: #fff !important;
   border: none !important;
 }
 
-/* Botões do header (Entrar e Cadastre-se) */
+.btn-entrar:hover {
+  background-color: #0e8b3a !important;
+}
+
+.btn-cadastrar {
+  background-color: #0ea5e9 !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+.btn-cadastrar:hover {
+  background-color: #0b8cc1 !important;
+}
+
 .btn-auth {
-  flex: 1;                 /* ocupa o mesmo espaço dentro do col */
-  min-width: 110px;      /* largura mínima */
-  max-width: 140px;        /* largura máxima */
+  flex: 1;                 
+  min-width: 110px;      
+  max-width: 140px;       
   text-align: center;
   font-weight: 500;
   padding: 6px 12px;
-
 }
 
-/* Footer responsivo */
+.btn-logout {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  color: #fff !important;
+  border: none !important;
+}
+.btn-logout:hover {
+  background-color: rgba(255,255,255,0.3) !important;
+}
+
+/* --- Footer --- */
 .footer-container {
   display: flex;
   align-items: center;
@@ -92,8 +148,20 @@ img.logo {
   text-align: center;
 }
 
+.footer {
+  background-color: #111;
+  color: #ddd;
+  padding: 1rem 0;
+}
 
-/* Quando a tela for menor que 768px, empilha os itens */
+.footer-links a {
+  color: #ddd;
+  margin: 0 0.5rem;
+}
+
+/* --- Responsividade --- */
+
+/* Footer: Empilha itens em tablets e menores */
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
@@ -105,26 +173,15 @@ img.logo {
   }
 }
 
-/* Footer */
-.footer {
-  background-color: #111;
-  color: #ddd;
-  padding: 1rem 0;
-}
-.footer-links a {
-  color: #ddd;
-  margin: 0 0.5rem;
-}
-
-.footer-links a {
-  color: #ddd;
-  margin: 0 0.5rem;
-}
-
-/* Responsivo simples */
-@media (max-width: 767px) {
+/* Navbar: Ajuste fino para Mobile e Tablets */
+@media (max-width: 991px) {
   .brand-text { font-size: 1rem; }
-  .navbar-gradient { height: auto; padding: 0.5rem 0; }
+  
+  /* Garante altura automática e padding lateral para o hambúrguer não cortar */
+  .navbar-gradient { 
+    height: auto !important; 
+    padding: 0.5rem 1rem !important; 
+  }
 }
 
 /* Hamburguer sem borda feia */
@@ -135,34 +192,4 @@ img.logo {
 .custom-toggler:focus {
   outline: none !important;
   box-shadow: none !important;
-}
-
-/* Verde para Entrar */
-.btn-entrar {
-  background-color: #16a34a !important;
-  color: #fff !important;
-  border: none !important;
-}
-.btn-entrar:hover {
-  background-color: #0e8b3a !important;
-}
-
-/* Azul para Cadastre-se */
-.btn-cadastrar {
-  background-color: #0ea5e9 !important;
-  color: #fff !important;
-  border: none !important;
-}
-.btn-cadastrar:hover {
-  background-color: #0b8cc1 !important;
-}
-
-/* Botão de Sair (logout) */
-.btn-logout {
-  background-color: rgba(255, 255, 255, 0.15) !important;
-  color: #fff !important;
-  border: none !important;
-}
-.btn-logout:hover {
-  background-color: rgba(255,255,255,0.3) !important;
 }

@@ -1,107 +1,3 @@
-/*import React, { useState } from "react";
-import { createUserWithEmailAndPassword, updateProfile, signInWithPopup } from "firebase/auth";
-import { auth, googleProvider } from "../firebase";
-import { Link, useNavigate } from "react-router-dom";
-
-export default function Register() {
-  const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
-
-  const handleRegister = async (e) => {
-    e.preventDefault();
-    try {
-      const userCred = await createUserWithEmailAndPassword(auth, email, senha);
-      await updateProfile(userCred.user, { displayName: nome });
-      navigate("/");
-    } catch (err) {
-      setError("Erro ao cadastrar: " + err.message);
-    }
-  };
-
-  const handleGoogle = async () => {
-    try {
-      await signInWithPopup(auth, googleProvider);
-      navigate("/");
-    } catch (err) {
-      setError("Erro com Google: " + err.message);
-    }
-  };
-
-  return (
-    <div className="container py-5">
-      <div className="row justify-content-center">
-        <div className="col-md-6 col-lg-4">
-          <div className="card p-4 shadow-sm">
-            <h2 className="text-center mb-4">Cadastre-se</h2>
-            {error && <div className="alert alert-danger">{error}</div>}
-
-            <form onSubmit={handleRegister}>
-              <div className="mb-3">
-                <label className="form-label">Nome</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  value={nome}
-                  onChange={(e) => setNome(e.target.value)}
-                  required
-                />
-              </div>
-
-              <div className="mb-3">
-                <label className="form-label">E-mail</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
-
-              <div className="mb-3">
-                <label className="form-label">Senha</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  value={senha}
-                  onChange={(e) => setSenha(e.target.value)}
-                  required
-                />
-              </div>
-
-              <div className="d-grid mb-3">
-                <button className="btn btn-primary" type="submit">
-                  Cadastrar
-                </button>
-              </div>
-
-              <div className="text-center mb-3">ou</div>
-
-              <div className="d-grid">
-                <button
-                  type="button"
-                  className="btn btn-danger"
-                  onClick={handleGoogle}
-                >
-                  <i className="bi bi-google me-2"></i> Entrar com Google
-                </button>
-              </div>
-
-              <p className="text-center mt-3">
-                Já tem uma conta? <Link to="/login">Entrar</Link>
-              </p>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-*/
-
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile, signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "../firebase";
@@ -150,15 +46,15 @@ export default function Register() {
   };
 
   return (
-    <div className="container py-5">
+    <div className="container py-2">
       <div className="row justify-content-center">
-        <div className="col-md-6 col-lg-4">
+        <div className="col-md-6 col-lg-5">
           <div className="card p-4 shadow-sm">
-            <h2 className="text-center mb-4">Cadastre-se</h2>
+            <h2 className="text-center mb-1">Cadastre-se</h2>
             {error && <div className="alert alert-danger">{error}</div>}
 
             <form onSubmit={handleRegister}>
-              <div className="mb-3">
+              <div className="mb-1">
                 <label className="form-label">Nome</label>
                 <input
                   type="text"
@@ -169,7 +65,7 @@ export default function Register() {
                 />
               </div>
 
-              <div className="mb-3">
+              <div className="mb-1">
                 <label className="form-label">E-mail</label>
                 <input
                   type="email"
@@ -199,13 +95,13 @@ export default function Register() {
                 />
               </div>
 
-              <div className="d-grid mb-3">
+              <div className="d-grid mb-1">
                 <button className="btn btn-primary" type="submit" disabled={!captchaValido}>
                   Cadastrar
                 </button>
               </div>
 
-              <div className="text-center mb-3">ou</div>
+              <div className="text-center mb-1">ou</div>
 
               <div className="d-grid">
                 <button
@@ -213,7 +109,7 @@ export default function Register() {
                   className="btn btn-danger"
                   onClick={handleGoogle}
                 >
-                  <i className="bi bi-google me-2"></i> Entrar com Google
+                  <i className="bi bi-google me-1"></i> Entrar com Google
                 </button>
               </div>
 

@@ -69,7 +69,7 @@ export default function Navbar() {
                     </Link>
                   </li>
                   <li>
-                    <button className="dropdown-item text-danger" onClick={handleLogout}>
+                    <button className="btn btn-danger" onClick={handleLogout}>
                       Sair
                     </button>
                   </li>

@@ -11,7 +11,7 @@ export default function Login() {
   const [error, setError] = useState("");
   const [captchaValido, setCaptchaValido] = useState(false);
 
-  // ✅ Substitua pela sua "Site Key" do Google reCAPTCHA
+  // ✅ ite Key do Google reCAPTCHA
   const RECAPTCHA_KEY = "6LcKXAQsAAAAAMm6QKz3YNENiAO4sIx-0on7MJyO";
 
   const handleEmailLogin = async (e) => {
@@ -49,15 +49,15 @@ export default function Login() {
   };
 
   return (
-    <div className="container py-5">
+    <div className="container py-2">
       <div className="row justify-content-center">
-        <div className="col-md-6 col-lg-4">
+        <div className="col-md-6 col-lg-5">
           <div className="card p-4 shadow-sm">
-            <h2 className="text-center mb-4">Entrar</h2>
+            <h2 className="text-center mb-1">Entrar</h2>
             {error && <div className="alert alert-danger">{error}</div>}
 
             <form onSubmit={handleEmailLogin}>
-              <div className="mb-3">
+              <div className="mb-1">
                 <label className="form-label">E-mail</label>
                 <input
                   type="email"
@@ -87,7 +87,7 @@ export default function Login() {
                 />
               </div>
 
-              <div className="d-grid mb-3">
+              <div className="d-grid mb-1">
                 <button
                   className="btn btn-primary"
                   type="submit"
@@ -97,15 +97,15 @@ export default function Login() {
                 </button>
               </div>
 
-              <div className="text-center mb-3">ou</div>
+              <div className="text-center mb-1">ou</div>
 
-              <div className="d-grid mb-2">
+              <div className="d-grid mb-1">
                 <button
                   type="button"
                   className="btn btn-danger"
                   onClick={handleGoogleLogin}
                 >
-                  <i className="bi bi-google me-2"></i> Entrar com Google
+                  <i className="bi bi-google me-1"></i> Entrar com Google
                 </button>
               </div>
 
