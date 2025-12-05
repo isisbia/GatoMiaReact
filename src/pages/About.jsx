@@ -21,7 +21,7 @@ const teamMembers = [
     role: "Desenvolvedora Frontend",
     photo: "Isis.png", 
     linkedin: "https://www.linkedin.com/in/isisbeatrizbonfim/",
-    github: "https://github.com",
+    github: "https://github.com/isisbia/",
   },
   {
     id: 2,
